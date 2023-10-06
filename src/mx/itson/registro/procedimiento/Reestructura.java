@@ -97,7 +97,9 @@ public class Reestructura {
     }
 
     /**
-     * 
+     * Por medio de un arreglo de tipo char en la variable AÑO se utilizan las ultimas 
+     * 2 posiciones para utilizarse, por ultimo se agrega el mes y el dia todo con el
+     * orden de formato Ultimos 2digitosAño,2digitosMes,2DigitosDia. 230101
      * @param dia Dia del mes que se tuvo registro del nacimiento de la persona.
      * @param mes Mes del nacimiento de la persona.
      * @param año Año de nacimiento de la persona.
@@ -268,7 +270,19 @@ public class Reestructura {
         
         return resultadoDatosPersonales;
     }
-    
+    /**
+     * Utilizacion de arreglos char para segmentar los apellidos y el nombre con 
+     * tal de compararlos despues en un ciclo for y que este nos identifique cual
+     * es la primera consonante interna del primer, segundo apellido y la consonante
+     * interna del nombre, posteriormente se convierte el valor string de la fecha a
+     * int para poder compararlo con el año y de esta manera nos muestra si se
+     * utilizara la letra 0 o A. Por ultimo se agrega el numero 1.
+     * @param primerApellido Primer apellido que se ingreso de la persona.
+     * @param segundoApellido Segundo apelldio que se ingreso de la persona.
+     * @param nombre Nombre de la persona.
+     * @param año Año en el que se registro el nacimiento de la persona.
+     * @return 
+     */
     public static String consonantes(String primerApellido, String segundoApellido, String nombre, String año){
         String resultadoConsonantes = "";
         String consonanteInternaPrimerApellido = "";
@@ -276,8 +290,10 @@ public class Reestructura {
         String consonanteInternaNombre = "";
         int añoEntero = 0;
         String letraFecha = "";
-        /*
         
+        /* Creamos un arreglo tipo char cont al de poder segmentarlo y de esta manera
+        en un ciclo poder compararlo y saber si se trata de una consonante, todo
+        esto iniciando desde la posicion 1 por que especifica que debe ser interna.
         */
         char [] primerApellidoPorLetras = primerApellido.toUpperCase().trim().toCharArray();
         
@@ -297,9 +313,9 @@ public class Reestructura {
                 consonanteInternaPrimerApellido = String.valueOf(primerApellidoPorLetras[contador]);
             }
         }
-        /*
-        
-        */
+        /* Aqui primero iniciamos con la comprobaciond e que exista un segundo apellido
+        en caso de no haberlo automaticamente pasa a ser X el resultado. Por todo lo 
+        demas es el mismo procedimiento del anterior paso. */
         if (segundoApellido.isBlank()) {
             consonanteInternaSegundoApellido = "X";
         }else{
@@ -322,9 +338,9 @@ public class Reestructura {
             }
           } 
         }
-        /*
-        
-        */
+        /* Mismo procedimiento que los anteriores 2 puntos solo que en este caso
+        se realiza con la variable nombre para identificar la primera consonante
+        interna del nombre */
         char [] nombreCompletoPorLetras = nombre.trim().toUpperCase().toCharArray();
         
         int contadorNombre = 1;
@@ -343,12 +359,14 @@ public class Reestructura {
                 consonanteInternaNombre = String.valueOf(nombreCompletoPorLetras[contadorNombre]);
             }
           } 
+        //en esta variable convertimos de string a int para poder hacer la comparativa
         añoEntero = Integer.parseInt(año);
         if (añoEntero >=2000) {
             letraFecha = "A";
         }else if (añoEntero < 2000) {
             letraFecha = "0";
         }
+        
         resultadoConsonantes = consonanteInternaPrimerApellido + consonanteInternaSegundoApellido + consonanteInternaNombre + letraFecha + 1;
         return resultadoConsonantes;
     }
