@@ -66,7 +66,7 @@ public class Reestructura {
         anteriores con lo cual al agarrar el primer elemento del arreglo obtenemos
         la primera letra del segundo apellido que corresponde a la tercera letra del curp.
         */
-        if (segundoApellido == "") {
+        if (segundoApellido.isBlank()) {
             terceraLetra = "X";
         }else{
             char [] segundoApellidoPorLetras = segundoApellido.trim()
@@ -109,155 +109,247 @@ public class Reestructura {
 
         char [] añoPorLetras = año.toCharArray();
         String añoUltimosDigitos = String.valueOf(añoPorLetras[2] + String.valueOf(añoPorLetras[3]));
-        String fecha = añoUltimosDigitos + mes + dia;
-        return fecha;
+        String resultadofecha = añoUltimosDigitos + mes + dia;
+        return resultadofecha;
     }
-    
-    public static String datosPersonales(String sexo, String entidadFederativa){
-        String datosPersonales = "S";
+    /**
+     * Se utilizan los datos recabados del jframe para determinar que inicio de
+     * letra se utilizara de acuerdo al sexo de la persona asi como la clave de entidad
+     * federativa que se utilizara, todo por medio de un switch/case.
+     * @param sexo Sexo de la persona.
+     * @param entidadFederativa Estado de la republica donde nacio la persona o 
+     * en su defecto el pais donde nacio.
+     * @return 3 letras correspondientes a la posicion numero 11 al 13 de la curp
+     * en caso de usarse un arreglo seria la posicion 10 al 12.
+     */
+    public static String datosPersonales(String sexo, String entidadFederativa) {
+        String resultadoDatosPersonales = "S";
         String estado = "";
 
-        switch(entidadFederativa){
+        switch (entidadFederativa) {
             case "Aguascalientes":
-            estado = "AS";
-            break;
-            
+                estado = "AS";
+                break;
+
             case "Baja California":
-            estado = "BC";
-            break;
-            
+                estado = "BC";
+                break;
+
             case "Baja California Sur":
-            estado = "BS";
-            break;
-            
+                estado = "BS";
+                break;
+
             case "Campeche":
-            estado = "CC";
-            break;
-            
+                estado = "CC";
+                break;
+
             case "Coahuila de Zaragoza":
-            estado = "CL";
-            break;
-            
+                estado = "CL";
+                break;
+
             case "Colima":
-            estado = "CM";
-            break;
-            
+                estado = "CM";
+                break;
+
             case "Chiapas":
-            estado = "CS";
-            break;
-            
+                estado = "CS";
+                break;
+
             case "Chihuahua":
-            estado = "CH";
-            break;
-            
+                estado = "CH";
+                break;
+
             case "Ciudad de México":
-            estado = "DF";
-            break;
-            
+                estado = "DF";
+                break;
+
             case "Durango":
-            estado = "DG";
-            break;
-            
+                estado = "DG";
+                break;
+
             case "Guanajuato":
-            estado = "GT";
-            break;
-            
+                estado = "GT";
+                break;
+
             case "Guerrero":
-            estado = "GR";
-            break;
-            
+                estado = "GR";
+                break;
+
             case "Hidalgo":
-            estado = "HG";
-            break;
-            
+                estado = "HG";
+                break;
+
             case "Jalisco":
-            estado = "JC";
-            break;
-            
+                estado = "JC";
+                break;
+
             case "México":
-            estado = "MC";
-            break;
-            
+                estado = "MC";
+                break;
+
             case "Michoacán de Ocampo":
-            estado = "MN";
-            break;
-            
+                estado = "MN";
+                break;
+
             case "Morelos":
-            estado = "MS";
-            break;
-            
+                estado = "MS";
+                break;
+
             case "Nayarit":
-            estado = "NT";
-            break;
-            
+                estado = "NT";
+                break;
+
             case "Nuevo León":
-            estado = "NL";
-            break;
-            
+                estado = "NL";
+                break;
+
             case "Oaxaca":
-            estado = "OC";
-            break;
-            
+                estado = "OC";
+                break;
+
             case "Puebla":
-            estado = "PL";
-            break;
-            
+                estado = "PL";
+                break;
+
             case "Querétaro":
-            estado = "QT";
-            break;
-            
+                estado = "QT";
+                break;
+
             case "Quintana Roo":
-            estado = "QR";
-            break;
-            
+                estado = "QR";
+                break;
+
             case "San Luis Potosí":
-            estado = "SP";
-            break;
-            
+                estado = "SP";
+                break;
+
             case "Sinaloa":
-            estado = "SL";
-            break;
-            
+                estado = "SL";
+                break;
+
             case "Sonora":
-            estado = "SR";
-            break;
-            
+                estado = "SR";
+                break;
+
             case "Tabasco":
-            estado = "TC";
-            break;
-            
+                estado = "TC";
+                break;
+
             case "Tamaulipas":
-            estado = "TS";
-            break;
-            
+                estado = "TS";
+                break;
+
             case "Tlaxcala":
-            estado = "TL";
-            break;
-            
+                estado = "TL";
+                break;
+
             case "Veracruz de Ignacio de la Llave":
-            estado = "VZ";
-            break;
-            
+                estado = "VZ";
+                break;
+
             case "Yucatán":
-            estado = "YN";
-            break;
-            
+                estado = "YN";
+                break;
+
             case "Zacatecas":
-            estado = "ZS";
-            break;
-            
+                estado = "ZS";
+                break;
+
             case "Nacido en el Extranjero":
-            estado = "NE";
-            break;
+                estado = "NE";
+                break;
         }
                 
         if (sexo == "Mujer") {
-         datosPersonales = "M" + estado;   
+         resultadoDatosPersonales = "M" + estado;   
         }else if (sexo == "Hombre") {
-         datosPersonales = "H" + estado;   
+         resultadoDatosPersonales = "H" + estado;   
         }
         
-        return datosPersonales;
+        return resultadoDatosPersonales;
     }
     
+    public static String consonantes(String primerApellido, String segundoApellido, String nombre, String año){
+        String resultadoConsonantes = "";
+        String consonanteInternaPrimerApellido = "";
+        String consonanteInternaSegundoApellido = "";
+        String consonanteInternaNombre = "";
+        int añoEntero = 0;
+        String letraFecha = "";
+        /*
+        
+        */
+        char [] primerApellidoPorLetras = primerApellido.toUpperCase().trim().toCharArray();
+        
+        int contador = 1;
+        for (char i : primerApellidoPorLetras) {
+            if (String.valueOf(primerApellidoPorLetras[contador]).startsWith("A")) {
+                contador++;
+            }else if (String.valueOf(primerApellidoPorLetras[contador]).startsWith("E")) {
+                contador++;
+            }else if (String.valueOf(primerApellidoPorLetras[contador]).startsWith("I")) {
+                contador++;
+            }else if (String.valueOf(primerApellidoPorLetras[contador]).startsWith("O")) {
+                contador++;
+            }else if (String.valueOf(primerApellidoPorLetras[contador]).startsWith("U")) {
+                contador++;
+            }else{
+                consonanteInternaPrimerApellido = String.valueOf(primerApellidoPorLetras[contador]);
+            }
+        }
+        /*
+        
+        */
+        if (segundoApellido.isBlank()) {
+            consonanteInternaSegundoApellido = "X";
+        }else{
+           int segundoContador = 1;
+           char [] segundoApellidoPorLetras = segundoApellido.trim().toUpperCase().toCharArray();
+           
+        for (char i : segundoApellidoPorLetras) {
+            if (String.valueOf(segundoApellidoPorLetras[segundoContador]).startsWith("A")) {
+                segundoContador++;
+            }else if (String.valueOf(segundoApellidoPorLetras[segundoContador]).startsWith("E")) {
+                segundoContador++;
+            }else if (String.valueOf(segundoApellidoPorLetras[segundoContador]).startsWith("I")) {
+                segundoContador++;
+            }else if (String.valueOf(segundoApellidoPorLetras[segundoContador]).startsWith("O")) {
+                segundoContador++;
+            }else if (String.valueOf(segundoApellidoPorLetras[segundoContador]).startsWith("U")) {
+                segundoContador++;
+            }else{
+                consonanteInternaSegundoApellido = String.valueOf(segundoApellidoPorLetras[segundoContador]);
+            }
+          } 
+        }
+        /*
+        
+        */
+        char [] nombreCompletoPorLetras = nombre.trim().toUpperCase().toCharArray();
+        
+        int contadorNombre = 1;
+        for (char i : nombreCompletoPorLetras) {
+            if (String.valueOf(nombreCompletoPorLetras[contadorNombre]).startsWith("A")) {
+                contadorNombre++;
+            }else if (String.valueOf(nombreCompletoPorLetras[contadorNombre]).startsWith("E")) {
+                contadorNombre++;
+            }else if (String.valueOf(nombreCompletoPorLetras[contadorNombre]).startsWith("I")) {
+                contadorNombre++;
+            }else if (String.valueOf(nombreCompletoPorLetras[contadorNombre]).startsWith("O")) {
+                contadorNombre++;
+            }else if (String.valueOf(nombreCompletoPorLetras[contadorNombre]).startsWith("U")) {
+                contadorNombre++;
+            }else{
+                consonanteInternaNombre = String.valueOf(nombreCompletoPorLetras[contadorNombre]);
+            }
+          } 
+        añoEntero = Integer.parseInt(año);
+        if (añoEntero >=2000) {
+            letraFecha = "A";
+        }else if (añoEntero < 2000) {
+            letraFecha = "0";
+        }
+        resultadoConsonantes = consonanteInternaPrimerApellido + consonanteInternaSegundoApellido + consonanteInternaNombre + letraFecha + 1;
+        return resultadoConsonantes;
+    }
 }
