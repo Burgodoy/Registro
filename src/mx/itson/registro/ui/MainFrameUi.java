@@ -248,8 +248,10 @@ public class MainFrameUi extends javax.swing.JFrame {
        String primerSegmento = Reestructura.primeras4Letras(txtNombre.getText(),
     txtPrimerApellido.getText(), txtSegundoApellido.getText());
        String segundoSegmento = Reestructura.fecha(txtDia.getText(), txtMes.getText(), txtAño.getText());
+       String tercerSegmento = Reestructura.datosPersonales(String.valueOf(cbSexo.getSelectedItem()),
+ String.valueOf(cbEntidadFederativa.getSelectedItem()));
        
-       lblCurp.setText("Su Curp es: " + primerSegmento + segundoSegmento);
+       lblCurp.setText("Su Curp es: " + primerSegmento + segundoSegmento + tercerSegmento);
     }//GEN-LAST:event_btnCompletarActionPerformed
 
     /**

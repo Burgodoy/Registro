@@ -102,8 +102,8 @@ public class Reestructura {
      * @param mes Mes del nacimiento de la persona.
      * @param año Año de nacimiento de la persona.
      * @return Las siguientes 9 letras que corresponden al CURP y serian las
-     * posiciones #5-13 y si se usara un arreglo para representar la CURP serian
-     * los numeros desde el 4 al 12.
+     * posiciones #5-10 y si se usara un arreglo para representar la CURP serian
+     * los numeros desde el 4 al 9.
      */
     public static String fecha(String dia, String mes, String año) {
 
@@ -113,5 +113,151 @@ public class Reestructura {
         return fecha;
     }
     
+    public static String datosPersonales(String sexo, String entidadFederativa){
+        String datosPersonales = "S";
+        String estado = "";
+
+        switch(entidadFederativa){
+            case "Aguascalientes":
+            estado = "AS";
+            break;
+            
+            case "Baja California":
+            estado = "BC";
+            break;
+            
+            case "Baja California Sur":
+            estado = "BS";
+            break;
+            
+            case "Campeche":
+            estado = "CC";
+            break;
+            
+            case "Coahuila de Zaragoza":
+            estado = "CL";
+            break;
+            
+            case "Colima":
+            estado = "CM";
+            break;
+            
+            case "Chiapas":
+            estado = "CS";
+            break;
+            
+            case "Chihuahua":
+            estado = "CH";
+            break;
+            
+            case "Ciudad de México":
+            estado = "DF";
+            break;
+            
+            case "Durango":
+            estado = "DG";
+            break;
+            
+            case "Guanajuato":
+            estado = "GT";
+            break;
+            
+            case "Guerrero":
+            estado = "GR";
+            break;
+            
+            case "Hidalgo":
+            estado = "HG";
+            break;
+            
+            case "Jalisco":
+            estado = "JC";
+            break;
+            
+            case "México":
+            estado = "MC";
+            break;
+            
+            case "Michoacán de Ocampo":
+            estado = "MN";
+            break;
+            
+            case "Morelos":
+            estado = "MS";
+            break;
+            
+            case "Nayarit":
+            estado = "NT";
+            break;
+            
+            case "Nuevo León":
+            estado = "NL";
+            break;
+            
+            case "Oaxaca":
+            estado = "OC";
+            break;
+            
+            case "Puebla":
+            estado = "PL";
+            break;
+            
+            case "Querétaro":
+            estado = "QT";
+            break;
+            
+            case "Quintana Roo":
+            estado = "QR";
+            break;
+            
+            case "San Luis Potosí":
+            estado = "SP";
+            break;
+            
+            case "Sinaloa":
+            estado = "SL";
+            break;
+            
+            case "Sonora":
+            estado = "SR";
+            break;
+            
+            case "Tabasco":
+            estado = "TC";
+            break;
+            
+            case "Tamaulipas":
+            estado = "TS";
+            break;
+            
+            case "Tlaxcala":
+            estado = "TL";
+            break;
+            
+            case "Veracruz de Ignacio de la Llave":
+            estado = "VZ";
+            break;
+            
+            case "Yucatán":
+            estado = "YN";
+            break;
+            
+            case "Zacatecas":
+            estado = "ZS";
+            break;
+            
+            case "Nacido en el Extranjero":
+            estado = "NE";
+            break;
+        }
+                
+        if (sexo == "Mujer") {
+         datosPersonales = "M" + estado;   
+        }else if (sexo == "Hombre") {
+         datosPersonales = "H" + estado;   
+        }
+        
+        return datosPersonales;
+    }
     
 }
