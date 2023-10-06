@@ -311,6 +311,7 @@ public class Reestructura {
                 contador++;
             }else{
                 consonanteInternaPrimerApellido = String.valueOf(primerApellidoPorLetras[contador]);
+                break;
             }
         }
         /* Aqui primero iniciamos con la comprobaciond e que exista un segundo apellido
@@ -335,6 +336,7 @@ public class Reestructura {
                 segundoContador++;
             }else{
                 consonanteInternaSegundoApellido = String.valueOf(segundoApellidoPorLetras[segundoContador]);
+                break;
             }
           } 
         }
@@ -357,6 +359,7 @@ public class Reestructura {
                 contadorNombre++;
             }else{
                 consonanteInternaNombre = String.valueOf(nombreCompletoPorLetras[contadorNombre]);
+                break;
             }
           } 
         //en esta variable convertimos de string a int para poder hacer la comparativa
