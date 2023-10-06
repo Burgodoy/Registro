@@ -245,10 +245,11 @@ public class MainFrameUi extends javax.swing.JFrame {
     }//GEN-LAST:event_cbEntidadFederativaActionPerformed
 
     private void btnCompletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletarActionPerformed
-       String segmentoNombre = Reestructura.primeras4Letras(txtNombre.getText(),
+       String primerSegmento = Reestructura.primeras4Letras(txtNombre.getText(),
     txtPrimerApellido.getText(), txtSegundoApellido.getText());
+       String segundoSegmento = Reestructura.fecha(txtDia.getText(), txtMes.getText(), txtAño.getText());
        
-       lblCurp.setText("Su Curp es: " + segmentoNombre);
+       lblCurp.setText("Su Curp es: " + primerSegmento + segundoSegmento);
     }//GEN-LAST:event_btnCompletarActionPerformed
 
     /**

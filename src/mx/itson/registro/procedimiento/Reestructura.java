@@ -10,7 +10,7 @@ public class Reestructura {
      * Se realizan utilizan varios metodos tal como arreglos de caracteres, cambio 
      * de fuente a mayusculas, trim y split con tal de quitar espacios vacios
      * que pudieron darse por error y de esta manera poder reorganizar los datos
-     * que se dieron y poder extraer las primeras 4 letras fde la curp.
+     * que se dieron y poder extraer las primeras 4 letras de la curp de la persona.
      * @param nombre Nombre que a ingresado la persona
      * @param primerApellido Primer apellido correspondiente a la persona
      * @param segundoApellido Segundo apellido correspondiente a la persona
@@ -40,7 +40,7 @@ public class Reestructura {
         */
         int contador = 1;
         segundaLetra = String.valueOf(apellidoPorLetras[contador]);
-
+        // con un ciclo for identificamos si se encuentra una vocal
         for (char i : apellidoPorLetras) {
             if (String.valueOf(apellidoPorLetras[contador]).startsWith("A")) {
                 segundaLetra = String.valueOf(apellidoPorLetras[contador]);
@@ -61,8 +61,10 @@ public class Reestructura {
                 contador++;
             }
         }
-        /*
-        
+        /* Si el espacio del segundo apellido se encuntra vacio por defecto la 
+        tercera letra es X, si se encuentra algo escrito recurrimos a los mismo pasos 
+        anteriores con lo cual al agarrar el primer elemento del arreglo obtenemos
+        la primera letra del segundo apellido que corresponde a la tercera letra del curp.
         */
         if (segundoApellido == "") {
             terceraLetra = "X";
@@ -71,18 +73,23 @@ public class Reestructura {
                     .toUpperCase().toCharArray();
             terceraLetra = String.valueOf(segundoApellidoPorLetras[0]);
         }
-        /*
         
+        /* Para la cuarta letra creamos un arreglo de tipo string el cual esta creado
+        por el metodo split para identificar cuando se hizo un espacio, despues 
+        creamos un arreglo de caracteres ya sea el caso de si fue 1 solo nombre o multiples
+        en caso de 1 escogemos el primer arreglo string, lo hacemos arreglo char y
+        escogemos el primer lugar, en caso de multimples seleccionamos el ultimo lugar
+        proseguimos con el arreglo de caracteres y seleccionamos de nuevo la primera posicion
         */
         String[] nombreCompleto = nombre.trim().toUpperCase().split(" ");
         
-        int contadorNombre = nombreCompleto.length-1;
+        int contadorNombreCompuesto = nombreCompleto.length-1;
         
-        if (nombreCompleto.length >1) {
-            char [] segundoNombre = nombreCompleto[contadorNombre].toCharArray();
+        if (nombreCompleto.length >2) {
+            char [] segundoNombre = nombreCompleto[contadorNombreCompuesto].toCharArray();
             cuartaLetra = String.valueOf(segundoNombre[0]);
-        }else if(nombreCompleto.length == 1){
-            char [] primerNombre = nombreCompleto[contadorNombre].toCharArray();
+        }else if(nombreCompleto.length == 2){
+            char [] primerNombre = nombreCompleto[0].toCharArray();
             cuartaLetra = String.valueOf(primerNombre[0]);
         }
         resultadoPrimeras4Letras = primeraLetra + segundaLetra + terceraLetra + cuartaLetra;
@@ -91,19 +98,19 @@ public class Reestructura {
 
     /**
      * 
-     * @param fecha Fecha en formato numerico Ejemplo: 01/12/2000
-     * @param sexo Sexo al cual pertenece la persona.
-     * @param entidadFederativa Estado donde nacio la persona.
+     * @param dia Dia del mes que se tuvo registro del nacimiento de la persona.
+     * @param mes Mes del nacimiento de la persona.
+     * @param año Año de nacimiento de la persona.
      * @return Las siguientes 9 letras que corresponden al CURP y serian las
      * posiciones #5-13 y si se usara un arreglo para representar la CURP serian
      * los numeros desde el 4 al 12.
      */
-    public static String datosPersonales(String fecha, String sexo,
-            String entidadFederativa) {
-        
-        String resultadoDatosPersonales = "";
+    public static String fecha(String dia, String mes, String año) {
 
-        return resultadoDatosPersonales;
+        char [] añoPorLetras = año.toCharArray();
+        String añoUltimosDigitos = String.valueOf(añoPorLetras[2] + String.valueOf(añoPorLetras[3]));
+        String fecha = añoUltimosDigitos + mes + dia;
+        return fecha;
     }
     
     
